@@ -1,0 +1,130 @@
+<div data-ng-include src="'/views/includes/connection.html'"></div>
+<section>
+  <div class="page-header">
+    <h1>
+      Payment Request
+    </h1>
+  </div>
+</section>
+<section>
+<div class="well" ng-controller="PaymentRequestGenerator">
+ <form action="#" name="prForm" class="form-horizontal" role="form" novalidate>
+<fieldset>
+
+<!-- Form Name -->
+<legend>Submit a payment request {{name}}</legend>
+
+<!-- Multiple Checkboxes -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="prChecks">Generate Bitcoin URLs</label>
+  <div class="col-md-4">
+  <div class="checkbox">
+    <label for="prChecks-0">
+      <input type="checkbox" name="prChecks" id="prChecks-0" ng-model="pr.TradPR" value="generateTradtional">
+      Traditional Bitcoin URL <small><a href="bitcoin:n24X8LKTVLmGSGZoTcsm3muqgRXyyE51vq?amount=0.098765&label=Test%20URL">bitcoin:n24X8LKTVLmGSGZoTcsm3muqgRXyyE51vq?amount=0.098765&label=Test%20URL</a></small>
+    </label>
+	</div>
+  <div class="checkbox">
+    <label for="prChecks-1">
+      <input type="checkbox" name="prChecks" id="prChecks-1" ng-model="pr.PR" value="generatePR">
+      Payment Request URL <small><a href="bitcoin:?r=http%3A%2F%2F172.17.254.107%2Fdemo_website%2Ff.php%3Fh%3De51db2dadaaf1033711bc71cbb9a511d">bitcoin:?r=http%3A%2F%2F172.17.254.107%2Fdemo_website%2Ff.php%3Fh%3De51db2dadaaf1033711bc71cbb9a511d</a></small>
+    </label>
+	</div>
+  </div>
+</div>
+
+<!-- Text input-->
+<div ng-if="!pr.PR || (pr.TradPR && pr.PR)" class="form-group">
+  <label class="col-md-4 control-label" for="paymentAddress">Address</label>  
+  <div class="col-md-4">
+  <input id="paymentAddress" name="paymentAddress" ng-model="pr.Addr" type="text" placeholder="n24X8LKTVLmGSGZoTcsm3muqgRXyyE51vq" class="form-control input-md">
+  <span class="help-block">Address to send payment</span>  
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="paymentAmount">Amount</label>  
+  <div class="col-md-4">
+  <input id="paymentAmount" name="paymentAmount" ng-model="pr.Amt" type="number" placeholder=".5" min="0" class="form-control input-md">
+  <span class="help-block">Amount in BTC</span>  
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="paymentReference">Order Number</label>  
+  <div class="col-md-4">
+  <input id="paymentReference" name="paymentReference" type="text" ng-model="pr.Ref" placeholder="ABC2014" class="form-control input-md">
+  <span class="help-block">Optional internal reference or order number.  This is not shown to clients.</span>  
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="prMemo">Description</label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="prMemo" name="prMemo" ng-model="pr.Desc"> </textarea>
+    <span class="help-block">For label/memo field.  e.g. Items in cart</span>
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div ng-if="pr.PR" class="form-group">
+  <label class="col-md-4 control-label" for="signPRrequest">Sign Request</label>
+  <div class="col-md-4">
+    <select id="signPRrequest" ng-model="pr.Signed" name="signPRrequest" class="form-control" required>
+      <option value="merchantCert">Merchant Cert</option>
+      <option value="noCert">None</option>
+    </select>
+    <span class="alert-danger" style="border-radius:3px;padding:3px" ng-show="prForm.signPRrequest.$error.required">Required!</span>
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div ng-if="pr.PR" class="form-group">
+  <label class="col-md-4 control-label" for="prExpireTime">Expires?</label>
+  <div class="col-md-4">
+    <select id="prExpireTime" ng-model="pr.Exp" name="prExpireTime" class="form-control" required>
+      <option value="5min">In 5 Minutes</option>
+      <option value="15min">In 15 Minutes</option>
+      <option selected="selected" value="30min">In 30 Minutes</option>
+      <option value="never">Never</option>
+    </select>
+    <span class="alert-danger" style="border-radius:3px;padding:3px" ng-show="prForm.prExpireTime.$error.required">Required!</span>
+  </div>
+</div>
+
+<!-- Text input-->
+<div ng-if="pr.PR" class="form-group">
+  <label class="col-md-4 control-label" for="prACK">Thank You Message</label>  
+  <div class="col-md-4">
+  <input id="prACK" name="prACK" type="text" ng-model="pr.Ack" placeholder="Thanks for your purchase!" class="form-control input-md">
+  <span class="help-block">Response for customers</span>  
+  </div>
+</div>
+
+<!-- Text input-->
+<div ng-if="pr.PR" class="form-group">
+  <label class="col-md-4 control-label" for="prRefAddr">Refund Address</label>  
+  <div class="col-md-4">
+  <input id="prRefAddr" name="prRefAddr" type="text" ng-model="pr.RefAddr" placeholder="mtULh5fVZh1eRjugMstMw3WNaMdmW95k1X" class="form-control input-md">
+  <span class="help-block">Send refunds to this address</span>  
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="submitPR">Process Request</label>
+  <div class="col-md-4">
+    <button class="btn btn-danger" type="reset" value="reset" ng-click="reset()" ng-disabled="isUnchanged(pr)">Reset Form</button>
+    <button id="submitPR" name="submitPR" class="btn btn-primary" ng-click="update()" ng-disabled="prForm.$invalid" || "isUnchanged(pr)">Submit</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+<p>Signed? {{pr.Signed}} , Amount? {{pr.Amt}}, Address? {{pr.Addr}}, Reference? {{pr.Ref}}, Expires? {{pr.Exp}}, Description? {{pr.Desc}}, PayAck? {{pr.Ack}}, BitAddr? {{pr.TradPR}}, BitPay? {{pr.PR}}, Refund? {{pr.RefAddr}}    </p>
+</div>
+
