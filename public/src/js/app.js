@@ -16,7 +16,8 @@ angular.module('insight',[
   'insight.search',
   'insight.status',
   'insight.connection',
-  'insight.currency'
+  'insight.currency',
+  'insight.paymentrequest'
 ]);
 
 angular.module('insight.system', []);
@@ -28,3 +29,4 @@ angular.module('insight.search', []);
 angular.module('insight.status', []);
 angular.module('insight.connection', []);
 angular.module('insight.currency', []);
+angular.module('insight.paymentrequest', []);

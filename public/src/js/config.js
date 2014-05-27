@@ -7,6 +7,10 @@ angular.module('insight').config(function($routeProvider) {
       templateUrl: '/views/block.html',
       title: 'Bitcoin Block '
     }).
+    when('/PR', {
+      templateUrl:'/views/pr.html',
+      title:'Payment Request '
+    }).
     when('/block-index/:blockHeight', {
       controller: 'BlocksController',
       templateUrl: '/views/redirect.html'
