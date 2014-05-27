@@ -51,6 +51,9 @@ angular.module('insight')
     $locationProvider.html5Mode(true);
     $locationProvider.hashPrefix('!');
   })
+  .config(function($compileProvider){
+  $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|bitcoin):/);
+  })
   .run(function($rootScope, $route, $location, $routeParams, $anchorScroll, ngProgress) {
     $rootScope.$on('$routeChangeStart', function() {
       ngProgress.start();
