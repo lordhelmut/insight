@@ -1,226 +1,173 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>insight</title>
-    <meta name="description" content="An open-source bitcoin blockchain API">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:site_name" content="insight">
-    <meta property="og:url" content="http://insight.is/">
-    <meta property="og:title" content="insight">
-    <meta property="og:description" content="An open-source bitcoin blockchain API">
-    <meta property="og:image" content="http://insight.is/images/og.png">
-    <meta property="og:type" content="website">
-    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
-    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|Ubuntu:300,400,500,700,400italic' rel='stylesheet' type='text/css'>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/common.css">
-    <script type="text/javascript">
-      window.analytics||(window.analytics=[]),window.analytics.methods=["identify","track","trackLink","trackForm","trackClick","trackSubmit","page","pageview","ab","alias","ready","group","on","once","off"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var method=window.analytics.methods[i];window.analytics[method]=window.analytics.factory(method)}window.analytics.load=function(t){var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)},window.analytics.SNIPPET_VERSION="2.0.8",
-      window.analytics.load("spackxb01g");
-      window.analytics.page();
-    </script>
-</head>
-<body>
-    <nav class="navbar navbar-default">
-      <a class="logo-header">insight</a>
-      <a href="https://github.com/bitpay/insight" class="btn   btn-info pull-right"> View on GitHub</a>
-    </nav>
+<!DOCTYPE html>
+<html>
 
-    <header class="bg-white">
-      <div class="row">
-        <div class="col-md-6">
-          <div id="carousel-example-generic" class="slider carousel slide hidden-xs" data-ride="carousel">
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-              <div class="item active">
-                <img src="./images/screen1.jpg" alt="...">
-                <div class="carousel-caption">
-                  <h4>Real-time updates</h4>
-                  <p>Information on realtime using the bitcoin peer-to-peer protocol</p>
-                </div>
-              </div>
-              <div class="item">
-                <img src="./images/screen2.jpg" alt="...">
-                <div class="carousel-caption">
-                  <h4>Extensive transaction details</h4>
-                  <p>Including confirmation status, double expend reports, inputs and outputs hyperlinks and more!</p>
-                </div>
-              </div>
-              <div class="item">
-                <img src="./images/screen3.jpg" alt="...">
-                <div class="carousel-caption">
-                  <h4>Address information</h4>
-                  <p>Track confirmed and unconfirmed address balances, related transactions, and change currencies on the fly.</p>
-                </div>
-              </div>
-              <div class="item">
-                <img src="./images/screen4.jpg" alt="...">
-                <div class="carousel-caption">
-                  <h4>Fast browsing</h4>
-                  <p>Search and browse the bitcoin blockchain using insight's simple front-end</p>
-                </div>
-              </div>
-              <div class="item">
-                <img src="./images/screen5.jpg" alt="...">
-                <div class="carousel-caption">
-                  <h4>REST and websocket API</h4>
-                  <p>Access a complete API for building your bitcoin projects</p>
-                </div>
-              </div>
-              <div class="item">
-                <img src="./images/screen6.jpg" alt="...">
-                <div class="carousel-caption">
-                  <h4>Open Source</h4>
-                  <p>insight is open source and built over a modern stack of technologies</p>
-                </div>
-              </div>
-              
-            </div>
-            <!-- Controls -->
-            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-              <span class="glyphicon glyphicon-chevron-left"></span>
-            </a>
-            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-              <span class="glyphicon glyphicon-chevron-right"></span>
-            </a>
-          </div>
-        </div> <!-- end of col-md-6 -->
-        <div class="col-md-6">
-          <div class="white-lead">
-            <h1>An open-source bitcoin blockchain API</h1>
-            <p class="visible-lg">The Insight REST API provides you with a convenient, powerful and simple way to read data from the bitcoin network and build your own services with it.</p>
-            <small class="hidden-lg text-muted">The Insight REST API provides you with a convenient, powerful and simple way to read data from the bitcoin network and build your own services with it.</small>
-          </div>
-          <div class="buttons row">
-            <a href="http://live.insight.is" class="btn btn-success col-xs-12 col-md-5" id="cta"> Livenet</a>
-            <a href="http://test.insight.is" class="btn btn-primary col-xs-12 col-md-5" id="cta"> Testnet</a>
-          </div>
-        </div>
-        <div class="col-md-12">
-          <div class="white-lead">
-            <h2>Built With...</h2>
-            <div class="col-md-3 media">
-              <a href="http://bitcore.io" class="pull-left">
-                <img src="http://bitcore.io/images/logo.svg" class="media-object" />
-              </a>
-              <div class="media-body">
-                <h3 class="media-heading"><!-- <a href="http://bitcore.io">bitcore</a> --></h3>
-              </div>
-            </div>
-            <div class="col-md-3 media">
-              <a href="http://angularjs.org" class="pull-left">
-                <img src="/images/angularjs.png" class="media-object" />
-              </a>
-              <div class="media-body">
-                <h3 class="media-heading"><!-- <a href="http://angularjs.org">Angular</a> --></h3>
-              </div>
-            </div>
-            <div class="col-md-3 media">
-              <a href="http://nodejs.org" class="pull-left">
-                <img src="/images/nodejs.png" class="media-object" />
-              </a>
-              <div class="media-body">
-                <h3 class="media-heading"><!-- <a href="http://nodejs.org">NodeJS</a> --></h3>
-              </div>
-            </div>
-            <div class="col-md-3 media">
-              <a href="http://leveldb.org" class="pull-left">
-                <img src="/images/leveldb.png" class="media-object" />
-              </a>
-              <div class="media-body">
-                <h3 class="media-heading"><!-- <a href="http://leveldb.org">LevelDB</a> --></h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div><!--  end of row --> 
-    </header>
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Insight : " />
 
-    <div class="container">
-      <h2>Main features</h2>
-      <ul class="features list-unstyled">
-        <li>
-          <h3><span class="icon glyphicon glyphicon-ok-sign"></span>Fast</h3>
-          <p>Fast navigation using client side javascript rendering with <a href="http://angularjs.org/" target="_blank" title="AngularJS">AngularJS</a>.</p>
-        </li>
-        <li>
-          <h3><span class="icon glyphicon glyphicon-ok-sign"></span>API</h3>
-          <p>Complete REST and Websocket API for quering blocks, transactions, and addresses; and receiving live updates. (<a href="https://github.com/bitpay/insight#api">View documentation</a>)</p>
-        </li>
-        <li>
-          <h3><span class="icon glyphicon glyphicon-ok-sign"></span>Light</h3>
-          <p>Thin data model using bitcoind RPC interfase to validate blockchain information. Fast bitcoind blockchain syncronization (~7hrs for the entire livenet), using LevelDB for data storage and, optionally, raw bitcoind data files processing.</p>
-        </li>
-        <li>
-            <h3> <span class="icon glyphicon glyphicon-ok-sign"></span>Exhaustive</h3>
-            <p>FReports on double spend attempts, outpoints confirmations, outputs spend status reports. Input and Outputs hyperlinks in transactions.  Extended view in transactions to show advance details.  On the fly currency convertion using bitstamp rates.</p>
-        </li>
-        <li>
-          <h3><span class="icon glyphicon glyphicon-ok-sign"></span>Open source</h3>
-          <p>Opensourced, written in <a href="http://nodejs.org/" target="_blank" title="node.js">node.js</a> and based on the powerful <a href="http://insight.is" target="_blank" titl="Bitcore">Bitcore</a> nodejs library.</p>
-        </li>
-      </ul>
-      
-      <div class="row line-top">
-        <h2>Quick Install</h2>
-        <div class="col-md-4">
-          <p>To install Insight, clone the main repository:</p>
-        </div>
-        <div class="col-md-8 m30b">
-<pre>
-$ git clone git@github.com:bitpay/insight.git && cd insight</pre>      
-        </div>
-      </div>
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-      <div class="row">
-        <div class="col-md-4">
-          <p>Install dependencies:</p>
-        </div>
-        <div class="col-md-8 m30b">
-<pre>
-$ npm install</pre>
-        </div>
-      </div>
+    <title>Insight</title>
+  </head>
 
-      <div class="row">
-        <div class="col-md-4">
-          <p>Fire it up:</p>
-        </div>
-        <div class="col-md-8 m30b">
-<pre>
-$ node insight.js</pre>
-        </div>
-      </div>
+  <body>
 
-      <div class="row">
-        <div class="col-md-4">
-          <p>Then open a browser and go to:</p>
-        </div>
-        <div class="col-md-8 m30b">
-          <a href="http://localhost:3001" class="lead" style="color:#8DC429;">http://localhost:3001</a>   
-        </div>
-      </div>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/lordhelmut/insight">View on GitHub</a>
 
-      <div class="line-top text-center" style="padding:2em 0; margin-bottom:2em;">
-        <p>View more on:</p>
-        <a class="view-more" href="https://github.com/bitpay/insight">
-          <img src="./images/mark-github-negative.png" alt="" width="50" style="margin-right:1em;margin-bottom:1em;">    
-          <img src="./images/github-logo-negative.png" alt="" width="150">  
-        </a>
-      </div>
-    </div> <!-- end of container xs -->
+          <h1 id="project_title">Insight</h1>
+          <h2 id="project_tagline"></h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/lordhelmut/insight/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/lordhelmut/insight/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="insight" class="anchor" href="#insight"><span class="octicon octicon-link"></span></a><em>insight</em>
+</h1>
+
+<p><em>insight</em> is an open-source bitcoin blockchain explorer with complete REST
+and websocket APIs. Insight runs in NodeJS, uses AngularJS for the
+front-end and LevelDB for storage.</p>
+
+<p>Check some screenshots and more details at <a href="http://insight.bitcore.io">insight's project homepage</a>.</p>
+
+<p><em>Insight</em> project is now splitted in two repositories. One for the <a href="https://github.com/bitpay/insight-api">API</a> and for the front-end. This repository is for the front-end, which will install the API as a NPM dependency.</p>
+
+<h2>
+<a name="prerequisites" class="anchor" href="#prerequisites"><span class="octicon octicon-link"></span></a>Prerequisites</h2>
+
+<ul>
+<li><p><strong>Node.js v0.10.x</strong> - Download and Install <a href="http://www.nodejs.org/download/">Node.js</a>.</p></li>
+<li><p><strong>NPM</strong> - Node.js package manager, should be automatically installed when you get node.js.</p></li>
+</ul><h2>
+<a name="quick-install" class="anchor" href="#quick-install"><span class="octicon octicon-link"></span></a>Quick Install</h2>
+
+<p>Check the Prerequisites section above before installing.</p>
+
+<p>To install Insight, clone the main repository:</p>
+
+<pre><code>$ git clone https://github.com/lordhelmut/insight.git &amp;&amp; cd insight
+</code></pre>
+
+<p>Install dependencies:</p>
+
+<pre><code>$ npm install
+</code></pre>
+
+<p>Run the main application:</p>
+
+<pre><code>$ npm start
+</code></pre>
+
+<p>Then open a browser and go to:</p>
+
+<pre><code>http://localhost:3001
+</code></pre>
+
+<p>If <em>insight</em> reports problems connecting to <strong>bitcoind</strong> please check the CONFIGURATION section of 
+  <a href="https://github.com/bitpay/insight-api/blob/master/README.md">insight-api README</a>. To set the 
+  environment variables run something like:</p>
+
+<pre><code> $ INSIGHT_NETWORK=livenet BITCOIND_USER=user BITCOIND_PASS=pass INSIGHT_PUBLIC_PATH=public  npm start
+</code></pre>
+
+<p>Please note that the app will need to sync its internal database
+  with the blockchain state, which may take some time. You can check
+  sync progress from within the web interface. More details about that process
+  on <a href="https://github.com/bitpay/insight-api/blob/master/README.md">insight-api README</a>. </p>
+
+<h2>
+<a name="development" class="anchor" href="#development"><span class="octicon octicon-link"></span></a>Development</h2>
+
+<p>To run insight locally for development mode:</p>
+
+<p>Install bower dependencies:</p>
+
+<p><code>$ bower install</code></p>
+
+<p>To compile and minify the web application's assets:</p>
+
+<p><code>$ grunt compile</code></p>
+
+<p>There is a convinent Gruntfile.js for automation during editing the code</p>
+
+<p><code>$ grunt</code></p>
+
+<p>In case you are developing <em>insight</em> and <em>insight-api</em> toghether, you can do the following:</p>
+
+<ul>
+<li>Install insight and insight-api on the same path ($IROOT)</li>
+</ul><pre><code>  $ cd $IROOT/insight
+  $ grunt
+</code></pre>
+
+<p>in other terminal:</p>
+
+<pre><code>  $ cd $IROOT/insight-api 
+  $ ln -s ../insight/public
+  $ INSIGHT_PUBLIC_PATH=public node insight.js 
+</code></pre>
+
+<p><code>INSIGHT_PUBLIC_PATH=insight/public  grunt</code>
+at insight-api's home path (edit the path according your setup).</p>
+
+<p><strong>also</strong> in the insight-api path. (So you will have to grunt process running, one for insight and one for insight-api).</p>
+
+<h2>
+<a name="note" class="anchor" href="#note"><span class="octicon octicon-link"></span></a>Note</h2>
+
+<p>For more details about the <em>insight API</em> configs and end-point, just go to <a href="https://github.com/bitpay/insight-api">insight API github repository</a> or read the <a href="https://github.com/bitpay/insight-api/blob/master/README.md">documentation</a></p>
+
+<h2>
+<a name="contribute" class="anchor" href="#contribute"><span class="octicon octicon-link"></span></a>Contribute</h2>
+
+<p>Contributions and suggestions are welcomed at <a href="https://github.com/bitpay/insight">insight github repository</a>.</p>
+
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>(The MIT License)</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Insight maintained by <a href="https://github.com/lordhelmut">lordhelmut</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
     
-    <footer>
-      <div class="container">
-        <p class="logo-footer">insight</p>
-        <p>&copy; 2014 BitPay, Inc.</p>
-      </div>
-    </footer>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js" type="text/javascript"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/a.js"></script>
-</body>
+  </body>
 </html>
