@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('insight.paymentrequest').controller('PaymentRequestGenerator',
-function($scope){
-	$scope.name =  'PaymentRequest';
+function($scope, Address){
+	$scope.name =  'Payment Request';
 
 	//var shit = new Address("n24X8LKTVLmGSGZoTcsm3muqgRXyyE51vq");
 	//console.log(shit.isValid());
@@ -14,8 +14,7 @@ function($scope){
 	  //console.log($scope.pr);
 	  //var stuff = $scope.pr;
 	  //console.log(stuff.Addr);
-	  console.log($scope.pr.Addr);
-	  //var shit = $scope.pr.Addr;
+	  console.log('Address is: ' + $scope.pr.Addr);
 	};
 
 	$scope.reset = function() {
