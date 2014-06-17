@@ -81,7 +81,7 @@
     	 <!-- //Reset Form
 	 -->
 	 <button class="btn btn-danger" type="reset" value="reset" ng-click="reset()" ng-disabled="isUnchanged(login)">Clear</button>
-	 <button id="submitLogin" name="submitLogin" class="btn btn-primary"  ng-disabled="!login.username||!login.password||!login.email||!login.verification">Register </button>
+	 <button id="submitLogin" name="submitLogin" class="btn btn-primary"  ng-disabled="!login.username||!login.password||!login.email||!login.verification||signupform.verification.$error.match">Register </button>
 	</div><!-- // row text-center -->
 
    </fieldset>
