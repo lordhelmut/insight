@@ -35,6 +35,12 @@
 	<i tooltip="For merchants to sign orders with SSL Certs. e.g. bitcoin:?r=http://bitcoin.org/f.php%3Fh%3De51db2dadaaf1033711bc71cbb9a511d" class="glyphicon glyphicon-question-sign"></i>
     </label>
 	</div>
+   <div class="checkbox">
+     <label for="prChecks-2">
+      <input type="checkbox" name="prChecks" id="prChecks-2" ng-model="pr.qrcode" value="generateQR">
+	Generate QR Code?
+     </label>
+	</div>
   </div>
 </div>
 
@@ -42,7 +48,7 @@
 <div ng-if="!pr.PR || (pr.TradPR && pr.PR)" class="form-group">
   <label class="col-md-4 control-label" for="paymentAddress">Address</label>  
   <div class="col-md-8">
-  <input id="paymentAddress" name="paymentAddress" ng-model="pr.Addr" type="text" placeholder="n24X8LKTVLmGSGZoTcsm3muqgRXyyE51vq" class="form-control input-md">
+  <input id="paymentAddress" name="paymentAddress" ng-model="pr.Addr" type="text" placeholder="n24X8LKTVLmGSGZoTcsm3muqgRXyyE51vq" class="form-control input-md">{{pr.Addr|checkAddr}}
   <span class="help-block">Address to send payment</span>  
   </div>
 </div>
@@ -52,7 +58,7 @@
   <label class="col-md-4 control-label" for="paymentAmount">Amount</label>  
   <div class="col-md-8">
   <input id="paymentAmount" name="paymentAmount" ng-model="pr.Amt" type="number" placeholder=".5" min="0" class="form-control input-md">
-  <span class="help-block">Amount in BTC</span>  
+  <span class="help-block">Amount in &#3647; (BTC)</span>  
   </div>
 </div>
 
@@ -141,12 +147,13 @@
 -->
 <p>
   <div ng-if="pr.TradPR">
-    Traditional Bitcoin URL: <a href="bitcoin:{{pr.Addr}}?amount={{pr.Amt}}&label={{pr.Desc}}">bitcoin:{{pr.Addr}}?amount={{pr.Amt}}&label={{pr.Desc|limitTo:50}}</a>
+    <a href="bitcoin:{{pr.Addr}}?amount={{pr.Amt}}&label={{pr.Desc}}">bitcoin:{{pr.Addr}}?amount={{pr.Amt}}&label={{pr.Desc|limitTo:50}}</a>
   </div>
 </p>
 <p>
   <div ng-if="pr.PR">
     Please click "Submit" to generate a payment request.
+    <a href="bitcoin:mrhz5ZgSF3C1BSdyCKt3gEdhKoRL5BNfJV?r=http%3A%2F%2F172.17.254.107%2Fbtcpay%2Fphp%2Fdemo_website%2Ff.php%3Fh%3D78407f07c2ed37ae7ed7ea3896918536&amount=0.00112233">Test uri may not be live</a>
   </div>
 </p>
 

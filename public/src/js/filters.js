@@ -7,6 +7,11 @@ angular.module('insight')
       return input.slice(start);
     }
   })
+  .filter('checkAddr', function() {
+    return function(input) {
+      return input ? '' : '\u2718 - Check Address';
+    }
+  })
   .filter('split', function() {
     return function(input, delimiter) {
       var delimiter = delimiter || ',';

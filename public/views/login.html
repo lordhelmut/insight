@@ -1,0 +1,93 @@
+<div data-ng-include src="'/views/includes/connection.html'"></div>
+
+<div class="col-lg-offset-4 col-lg-4" ng-controller="LoginController">
+
+ <script type="text/ng-template" id="resetpasswd.html">
+        <div class="modal-header">
+            <h3 class="modal-title">I'm a modal!</h3>
+        </div>
+        <div class="modal-body">
+		asdf
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary" href="#">OK</button>	
+	</div>
+ </script>
+
+<div class="panel panel-info">
+
+ <div class="panel panel-heading">{{name}}
+  <div class="pull-right text-muted" ng-model="login.header1"><a ng-click="isCollapsed = !isCollapsed">Sign up!</a> / <a ng-click="open()">Forgot password?</a></div>
+ </div>
+
+ <div class="panel-body" style="padding:20px" ng-model="login.signinpanel" collapse="!isCollapsed">
+  <form name="loginform" method="post" class="form-horizontal" role="form" action="/signin" novalidate>
+   <fieldset>
+	<div class="form-group">
+	 <label for="username">Username </label>
+	 <input class="form-control" type="text" name="username" id="username" placeholder="Username" ng-model="login.username" autofocus>
+	</div>
+        <div class="form-group">
+	 <label for="password">Password </label>
+	 <input class="form-control" type="password" name="password" id="password" placeholder="Password" ng-model="login.password">
+	</div>
+	<div class="row text-center" style="margin-top:10px">
+    	 <!-- //Reset Form
+	 <button class="btn btn-danger" type="reset" value="reset" ng-click="reset()" ng-disabled="isUnchanged(login)">Clear</button>
+	 -->
+	 <button id="submitLogin" name="submitLogin" class="btn btn-primary"  ng-disabled="!login.username||!login.password">Login </button>
+	 <div class="input-group pull-right" style="margin-right:10px">
+	  <div class="checkbox">
+	   <input type="checkbox" name="loginremember" id="loginremember" ng-model="login.remember">
+	   Remember me?
+	  </div>
+	 </div>
+	</div><!-- // row text-center -->
+   </fieldset>
+  </form>
+ </div>
+
+ <div class="panel-body" style="padding:20px" ng-model="login.signuppanel" collapse="isCollapsed">
+  <form name="signupform" method="post" class="form-horizontal" role="form" action="/signup" novalidate>
+   <fieldset>
+	<div class="form-group">
+	 <label for="username" class="control-label">Username </label>
+	 <input class="form-control" type="text" name="username" id="username" unique-username required placeholder="Username" ng-model="login.username" autofocus>
+	  <i ng-show="busy" class="glyphicon glyphicon-refresh"> </i>
+	  <span ng-show="signupform.username.$dirty && signupform.username.$error.required" class="help-block">Please choose a username</span>
+	</div>
+
+	<div class="form-group">
+	 <label for="email" class="control-label">Email</label>
+	 <input type="email" ng-model="login.email" name="email" id="email" placeholder="Email" required class="form-control">
+	 <span ng-show="signupform.email.$dirty && signupform.email.$error.email" class="help-block">Email is invalid</span>
+	</div>
+
+        <div class="form-group">
+	 <label for="password">Password </label>
+	 <input class="form-control" type="password" name="password" id="password" placeholder="Password" ng-model="login.password" required match="login.verification">
+	 <span ng-show="signupform.password.$dirty && signupform.password.$error.required" class="help-block">Password is required</span>
+	</div>
+	
+
+	<div class="form-group">
+	 <label for="verification" class="control-label">Repeat password</label>
+	 <input type="password" name="verification" id="verification" ng-model="login.verification" required match="login.password" class="form-control">
+	<span ng-show="signupform.verification.$dirty && signupform.verification.$error.required" class="help-block">Please repeat your password</span>
+	<span ng-show="signupform.verification.$dirty && signupform.verification.$error.match" class="help-block">Passwords do not match</span>
+	</div>
+
+	<div class="row text-center" style="margin-top:10px">
+    	 <!-- //Reset Form
+	 -->
+	 <button class="btn btn-danger" type="reset" value="reset" ng-click="reset()" ng-disabled="isUnchanged(login)">Clear</button>
+	 <button id="submitLogin" name="submitLogin" class="btn btn-primary"  ng-disabled="!login.username||!login.password||!login.email||!login.verification">Register </button>
+	</div><!-- // row text-center -->
+
+   </fieldset>
+  </form>
+ </div>
+
+ </div><!-- end panel info -->
+
+</div>

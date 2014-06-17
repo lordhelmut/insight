@@ -17,7 +17,8 @@ angular.module('insight',[
   'insight.status',
   'insight.connection',
   'insight.currency',
-  'insight.paymentrequest'
+  'insight.paymentrequest',
+  'insight.login'
 ]);
 
 angular.module('insight.system', []);
@@ -30,3 +31,4 @@ angular.module('insight.status', []);
 angular.module('insight.connection', []);
 angular.module('insight.currency', []);
 angular.module('insight.paymentrequest', []);
+angular.module('insight.login', []);

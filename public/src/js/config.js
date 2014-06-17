@@ -7,6 +7,10 @@ angular.module('insight').config(function($routeProvider) {
       templateUrl: '/views/block.html',
       title: 'Bitcoin Block '
     }).
+    when('/login', {
+      templateUrl:'/views/login.html',
+      title:'Login '
+    }).
     when('/PR', {
       templateUrl:'/views/pr.html',
       title:'Payment Request '
