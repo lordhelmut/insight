@@ -17,15 +17,16 @@
 <div class="panel panel-info">
 
  <div class="panel panel-heading">{{name}}
-  <div class="pull-right text-muted" ng-model="login.header1"><a ng-click="isCollapsed = !isCollapsed">Sign up!</a> / <a ng-click="open()">Forgot password?</a></div>
+  <div class="pull-right text-muted" ng-model="login.header1"><a ng-click="isCollapsed = !isCollapsed">Sign up!</a> / <a ng-click="open()">Forgot password?</a> <span ng-show="signupform.$dirty"> / <a href="#" ng-click="isCollapsed = !isCollapsed">Log in</a></span>
+</div>
  </div>
 
  <div class="panel-body" style="padding:20px" ng-model="login.signinpanel" collapse="!isCollapsed">
   <form name="loginform" method="post" class="form-horizontal" role="form" action="/signin" novalidate>
    <fieldset>
 	<div class="form-group">
-	 <label for="username">Username </label>
-	 <input class="form-control" type="text" name="username" id="username" placeholder="Username" ng-model="login.username" autofocus>
+	 <label for="signinusername">Username </label>
+	 <input class="form-control" type="text" name="signinusername" id="signinusername" placeholder="Username" ng-model="login.signinusername" autofocus>
 	</div>
         <div class="form-group">
 	 <label for="password">Password </label>
@@ -35,7 +36,7 @@
     	 <!-- //Reset Form
 	 <button class="btn btn-danger" type="reset" value="reset" ng-click="reset()" ng-disabled="isUnchanged(login)">Clear</button>
 	 -->
-	 <button id="submitLogin" name="submitLogin" class="btn btn-primary"  ng-disabled="!login.username||!login.password">Login </button>
+	 <button id="submitLogin" name="submitLogin" class="btn btn-primary"  ng-disabled="!login.signinusername||!login.password">Login </button>
 	 <div class="input-group pull-right" style="margin-right:10px">
 	  <div class="checkbox">
 	   <input type="checkbox" name="loginremember" id="loginremember" ng-model="login.remember">
@@ -55,6 +56,8 @@
 	 <input class="form-control" type="text" name="username" id="username" unique-username required placeholder="Username" ng-model="login.username" autofocus>
 	  <i ng-show="busy" class="glyphicon glyphicon-refresh"> </i>
 	  <span ng-show="signupform.username.$dirty && signupform.username.$error.required" class="help-block">Please choose a username</span>
+	  <span ng-show="signupform.username.$dirty && signupform.username.$error.invalidChars" class="help-block">Username may not contain any non-url-safe characters</span>
+	  <span ng-show="signupform.username.$dirty && signupform.username.$error.isTaken" class="help-block">Username is taken</span>
 	</div>
 
 	<div class="form-group">
@@ -81,7 +84,7 @@
     	 <!-- //Reset Form
 	 -->
 	 <button class="btn btn-danger" type="reset" value="reset" ng-click="reset()" ng-disabled="isUnchanged(login)">Clear</button>
-	 <button id="submitLogin" name="submitLogin" class="btn btn-primary"  ng-disabled="!login.username||!login.password||!login.email||!login.verification||signupform.verification.$error.match">Register </button>
+	 <button id="submitLogin" name="submitLogin" class="btn btn-primary"  ng-disabled="!login.username||!login.password||!login.email||!login.verification||signupform.verification.$error.match||signupform.username.$error.isTaken">Register </button>
 	</div><!-- // row text-center -->
 
    </fieldset>
