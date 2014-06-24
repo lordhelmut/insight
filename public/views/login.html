@@ -17,8 +17,11 @@
 <div class="panel panel-info">
 
  <div class="panel panel-heading">{{name}}
-  <div class="pull-right text-muted" ng-model="login.header1"><a ng-click="isCollapsed = !isCollapsed">Sign up!</a> / <a ng-click="open()">Forgot password?</a> <span ng-show="signupform.$dirty"> / <a href="#" ng-click="isCollapsed = !isCollapsed">Log in</a></span>
-</div>
+  <div class="pull-right text-muted" ng-model="login.header1">
+	<a ng-click="open()">Forgot password?</a> /
+	<span ng-show="signupform.login.loginheader = isCollapsed"><a ng-click="isCollapsed = !isCollapsed" ng-model="login.signupheader">Sign up!</a></span>
+	<span ng-show="signupform.login.signupheader = !isCollapsed"><a href="#" ng-click="isCollapsed = !isCollapsed" ng-model="login.loginheader">Log in</a></span>
+  </div>
  </div>
 
  <div class="panel-body" style="padding:20px" ng-model="login.signinpanel" collapse="!isCollapsed">
