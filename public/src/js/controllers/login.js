@@ -8,7 +8,7 @@ function($scope, $modal, Address){
   	$scope.open = function (size) {
     	  var modalInstance = $modal.open({
       	   templateUrl: 'resetpasswd.html',
-           //controller: ModalInstanceCtrl,
+           controller: ModalInstanceCtrl,
            size: size,
       	   resolve: {
         	items: function () {
@@ -24,7 +24,6 @@ function($scope, $modal, Address){
 			//, function () { console.log('Modal dismissed at: ' + new Date()); });
          };
 
-	
 
 	$scope.master = {};
 	$scope.wasSubmitted = false;
@@ -58,3 +57,9 @@ function($scope, $modal, Address){
 	$scope.reset();
 	});
 
+var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
+	$scope.items = items;
+	$scope.cancel = function () {
+	    $modalInstance.dismiss('cancel');
+	};
+};
