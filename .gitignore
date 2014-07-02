@@ -23,6 +23,7 @@ node_modules
 .project
 peerdb.json
 
+nohup.out
 npm-debug.log
 .nodemonignore
 
