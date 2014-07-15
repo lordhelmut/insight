@@ -26,6 +26,8 @@
       <strong>Address</strong> 
       <span class="text-muted">{{address.addrStr}}</span>
       <span class="btn-copy" clip-copy="address.addrStr"></span>
+      <rating ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
+      <span class="label" ng-class="{'label-warning': percent=0, 'label-success': percent=1}" ng-show="overStar && !isReadonly">Mark Favorite?</span>
     </div>
     <h2>Summary <small>confirmed</small></h2>
     <div class="row" data-ng-hide="!address.addrStr">

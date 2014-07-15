@@ -4,6 +4,15 @@ angular.module('insight.address').controller('AddressController',
   function($scope, $rootScope, $routeParams, $location, Global, Address, getSocket) {
     $scope.global = Global;
 
+ $scope.rate = 0;
+  $scope.max = 1;
+  $scope.isReadonly = false;
+
+  $scope.hoveringOver = function(value) {
+    $scope.overStar = value;
+    $scope.percent = 100 * (value / $scope.max);
+  };
+
 
     var socket = getSocket($scope);
 
