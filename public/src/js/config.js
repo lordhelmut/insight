@@ -58,7 +58,8 @@ angular.module('insight')
   .config(function($compileProvider){
   $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|bitcoin):/);
   })
-  .run(function($rootScope, $route, $location, $routeParams, $anchorScroll, ngProgress) {
+  .run(function($rootScope, $route, $location, $routeParams, $anchorScroll, ngProgress, gettextCatalog) {
+    gettextCatalog.currentLanguage = 'en';
     $rootScope.$on('$routeChangeStart', function() {
       ngProgress.start();
     });
